@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="md:col-span-2 space-y-4">
                         <h2 className="text-2xl font-bold">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
-                                Portfolio.
+                                BinaPortfolio.
                             </span>
                         </h2>
                         <p className="text-gray-400 max-w-sm">
