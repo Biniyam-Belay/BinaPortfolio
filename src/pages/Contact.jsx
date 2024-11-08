@@ -27,8 +27,8 @@ const Contact = () => {
                             {/* Contact Details */}
                             <div className="space-y-6">
                                 {[
-                                    { icon: "📧", title: "Email", value: "hello@example.com" },
-                                    { icon: "📱", title: "Phone", value: "+1 234 567 890" },
+                                    { icon: "📧", title: "Email", value: "binibelaygom@gmail.com" },
+                                    { icon: "📱", title: "Phone", value: "+251 902 888 906" },
                                     { icon: "📍", title: "Location", value: "Addis Ababa, Ethiopia" }
                                 ].map((item, index) => (
                                     <div key={index} className="flex items-center gap-4 p-4 rounded-2xl backdrop-blur-xl bg-white/5 border border-white/10">
@@ -65,7 +65,7 @@ const Contact = () => {
                                     <input
                                         type="text"
                                         className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-300"
-                                        placeholder="John Doe"
+                                        placeholder="Your Name"
                                     />
                                 </div>
                                 <div>

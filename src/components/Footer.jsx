@@ -49,11 +49,11 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li className="text-gray-400">
                                 <i className="fas fa-envelope mr-2"></i>
-                                hello@example.com
+                                binibelaygom@gmail.com
                             </li>
                             <li className="text-gray-400">
                                 <i className="fas fa-phone mr-2"></i>
-                                +1 234 567 890
+                                +251 902 888 906
                             </li>
                             <li className="text-gray-400">
                                 <i className="fas fa-map-marker-alt mr-2"></i>
