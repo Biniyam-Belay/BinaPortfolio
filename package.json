@@ -2,11 +2,11 @@
   "name": "binaportfolio-backend",
   "version": "1.0.0",
   "description": "Backend for BinaPortfolio",
-  "main": "backend/server.js",
+  "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
