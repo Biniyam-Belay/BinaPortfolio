@@ -12,9 +12,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'https://binaportfolio.netlify.app'],
     methods: ['GET', 'POST'],
-    credentials: true
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Accept']
 }));
 app.use(express.json());
 
@@ -72,20 +73,40 @@ try {
 app.post('/api/contact', async (req, res) => {
     try {
         console.log('Received contact form submission:', req.body);
+
+        // Validate request body
+        if (!req.body.name || !req.body.email || !req.body.subject || !req.body.message) {
+            return res.status(400).json({
+                message: 'All fields are required'
+            });
+        }
+
         const { name, email, subject, message } = req.body;
 
         // Save to MongoDB
-        const newContact = new Contact({
-            name,
-            email,
-            subject,
-            message
-        });
-        await newContact.save();
-        console.log('Saved to MongoDB');
+        try {
+            const newContact = new Contact({
+                name,
+                email,
+                subject,
+                message
+            });
+            await newContact.save();
+            console.log('Saved to MongoDB');
+        } catch (dbError) {
+            console.error('MongoDB Error:', dbError);
+            return res.status(500).json({
+                message: 'Database error',
+                error: dbError.message
+            });
+        }
 
         // Send Email
-        if (transporter) {
+        try {
+            if (!transporter) {
+                throw new Error('Email transporter not initialized');
+            }
+
             const mailOptions = {
                 from: process.env.EMAIL_USER,
                 to: process.env.EMAIL_USER,
@@ -101,13 +122,21 @@ app.post('/api/contact', async (req, res) => {
 
             await transporter.sendMail(mailOptions);
             console.log('Email sent successfully');
+        } catch (emailError) {
+            console.error('Email Error:', emailError);
+            // Don't return here, as we still saved to database
+            // Just log the email error
         }
 
-        res.status(200).json({ message: 'Message sent successfully!' });
+        res.status(200).json({
+            message: 'Message received and saved successfully!',
+            emailSent: true
+        });
+
     } catch (error) {
         console.error('Server Error:', error);
         res.status(500).json({
-            message: 'Error sending message',
+            message: 'Server error processing your request',
             error: error.message
         });
     }
@@ -116,6 +145,11 @@ app.post('/api/contact', async (req, res) => {
 // Health check route
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'Server is running' });
+});
+
+// Add a test route
+app.get('/test', (req, res) => {
+    res.status(200).json({ message: 'Server is working' });
 });
 
 // Start server

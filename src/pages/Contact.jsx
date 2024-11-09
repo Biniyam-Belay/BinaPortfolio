@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -20,25 +22,37 @@ const Contact = () => {
         setStatus({ type: '', message: '' });
 
         try {
-            const response = await fetch('http://localhost:5000/api/contact', {
+            console.log('Sending data:', formData);
+
+            const response = await fetch(`${API_URL}/api/contact`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify(formData)
             });
 
+            console.log('Response status:', response.status);
+
             const data = await response.json();
+            console.log('Response data:', data);
 
             if (response.ok) {
                 setStatus({ type: 'success', message: 'Message sent successfully!' });
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
-                setStatus({ type: 'error', message: data.message || 'Error sending message' });
+                setStatus({
+                    type: 'error',
+                    message: data.message || `Error: ${response.status} - ${response.statusText}`
+                });
             }
         } catch (error) {
-            console.error('Error:', error);
-            setStatus({ type: 'error', message: 'Error sending message. Please try again.' });
+            console.error('Fetch Error:', error);
+            setStatus({
+                type: 'error',
+                message: `Connection error: ${error.message}. Please try again.`
+            });
         } finally {
             setLoading(false);
         }
