@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="md:col-span-2 space-y-4">
                         <h2 className="text-2xl font-bold">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
-                                Portfolio.
+                                BinaPortfolio.
                             </span>
                         </h2>
                         <p className="text-gray-400 max-w-sm">
@@ -49,11 +49,11 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li className="text-gray-400">
                                 <i className="fas fa-envelope mr-2"></i>
-                                hello@example.com
+                                yeabubina@gmail.com
                             </li>
                             <li className="text-gray-400">
                                 <i className="fas fa-phone mr-2"></i>
-                                +1 234 567 890
+                                +251 902 888 906
                             </li>
                             <li className="text-gray-400">
                                 <i className="fas fa-map-marker-alt mr-2"></i>
@@ -69,7 +69,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-400 text-sm text-center md:text-left">
-                        © {currentYear} Portfolio. All rights reserved.
+                        © {currentYear} BinaPortfolio. All rights reserved.
                     </p>
                     <div className="flex gap-6">
                         <a href="#privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">

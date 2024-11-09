@@ -12,10 +12,8 @@ services:
       - key: MONGODB_URI
         value: mongodb+srv://yeabubina:K5Bp3UHmrJtgcEoN@cluster0.hkhaz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       - key: EMAIL_USER
-        value: binibelaygom@gmail.com
+        value: yeabubina@gmail.com
       - key: EMAIL_PASS
         value: gumi juwb kzba lxcy
       - key: PORT
         value: 10000
-      - key: RECIPIENT_EMAIL
-        value: yeabubina@gmail.com
