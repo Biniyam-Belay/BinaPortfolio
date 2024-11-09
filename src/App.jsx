@@ -1,4 +1,3 @@
-import { ThemeProvider } from './context/ThemeContext';
 import Navbar from "./components/Navbar"
 import Hero from "./pages/Hero"
 import About from "./pages/About"
@@ -8,30 +7,28 @@ import Footer from "./components/Footer"
 
 const App = () => {
     return (
-        <ThemeProvider>
-            <div className="App">
-                <Navbar />
-                <section id="home">
-                    <Hero />
-                </section>
+        <div className="App">
+            <Navbar />
+            <section id="home">
+                <Hero />
+            </section>
 
-                <section id="about">
-                    <About />
-                </section>
+            <section id="about">
+                <About />
+            </section>
 
-                <section id="projects">
-                    <Projects />
-                </section>
+            <section id="projects">
+                <Projects />
+            </section>
 
-                <section id="contact">
-                    <Contact />
-                </section>
-                <section id="footer">
-                    <Footer />
-                </section>
-            </div>
-        </ThemeProvider>
-    )
+            <section id="contact">
+                <Contact />
+            </section>
+            <section id="footer">
+                <Footer />
+            </section>
+        </div>
+    );
 }
 
-export default App
+export default App;
