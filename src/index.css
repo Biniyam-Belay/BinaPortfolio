@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -16,23 +18,30 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: black;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif !important;
   font-weight: 400;
   line-height: 1.5;
   color: #fff;
 }
 
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif !important;
   font-weight: 700;
   line-height: 1.2;
 }
 
 p {
+  font-family: 'Poppins', sans-serif !important;
   font-weight: 400;
   line-height: 1.7;
 }
 
 button, a {
+  font-family: 'Poppins', sans-serif !important;
   font-weight: 500;
 }
 
