@@ -156,9 +156,14 @@ app.get('/test', (req, res) => {
     res.status(200).json({ message: 'Server is working' });
 });
 
+// Add a root route
+app.get('/', (req, res) => {
+    res.json({ message: 'BinaPortfolio Backend API' });
+});
+
 // Start server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
 });
 
