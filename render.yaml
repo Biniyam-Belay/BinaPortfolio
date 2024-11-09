@@ -17,3 +17,5 @@ services:
         value: gumi juwb kzba lxcy
       - key: PORT
         value: 10000
+      - key: RECIPIENT_EMAIL
+        value: yeabubina@gmail.com

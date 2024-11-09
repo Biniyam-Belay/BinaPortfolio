@@ -39,6 +39,13 @@ const Projects = () => {
             image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1000&auto=format&fit=crop",
             size: "wide",
         },
+        {
+            title: "Social Media Campaign",
+            category: "Marketing",
+            description: "Comprehensive social media campaign design",
+            image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop",
+            size: "small",
+        }
     ];
 
     return (

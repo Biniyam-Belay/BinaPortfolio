@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="md:col-span-2 space-y-4">
                         <h2 className="text-2xl font-bold">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
-                                BinaPortfolio.
+                                Portfolio.
                             </span>
                         </h2>
                         <p className="text-gray-400 max-w-sm">
@@ -49,11 +49,11 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li className="text-gray-400">
                                 <i className="fas fa-envelope mr-2"></i>
-                                binibelaygom@gmail.com
+                                hello@example.com
                             </li>
                             <li className="text-gray-400">
                                 <i className="fas fa-phone mr-2"></i>
-                                +251 902 888 906
+                                +1 234 567 890
                             </li>
                             <li className="text-gray-400">
                                 <i className="fas fa-map-marker-alt mr-2"></i>

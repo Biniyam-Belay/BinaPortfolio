@@ -93,7 +93,7 @@ app.post('/api/contact', async (req, res) => {
                     name: "Portfolio Contact Form",
                     address: process.env.EMAIL_USER
                 },
-                to: process.env.EMAIL_USER,
+                to: "yeabubina@gmail.com",
                 subject: `New Contact Form Submission: ${subject}`,
                 html: `
                     <h3>New Contact Form Submission</h3>

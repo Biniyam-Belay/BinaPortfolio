@@ -17,7 +17,7 @@ const Hero = () => {
             </div>
 
             {/* Main Content */}
-            <div className="container mx-auto px-4 md:px-6 relative z-10 mt-[10rem]">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center text-center mb-12">
                     {/* Profile Image */}
                     <div className="relative w-32 h-32 md:w-40 md:h-40 mb-8">
