@@ -12,7 +12,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://binaportfolio.netlify.app'],
+    origin: [
+        'http://localhost:5173',
+        'https://binaportfolio.netlify.app',
+        'https://binaportfolio-backend.onrender.com'
+    ],
     methods: ['GET', 'POST'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Accept']
