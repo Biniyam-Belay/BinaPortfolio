@@ -12,13 +12,8 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: [
-        'http://localhost:5173',
-        'https://binaportfolio.netlify.app',
-        'https://binaportfolio-backend.onrender.com'
-    ],
+    origin: '*',
     methods: ['GET', 'POST'],
-    credentials: true,
     allowedHeaders: ['Content-Type', 'Accept']
 }));
 app.use(express.json());
@@ -47,43 +42,86 @@ const Contact = mongoose.model('Contact', contactSchema);
 // Email Configuration
 const transporter = nodemailer.createTransport({
     service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false
     }
 });
 
 // Contact Route
 app.post('/api/contact', async (req, res) => {
     try {
+        console.log('Received request:', req.body);
         const { name, email, subject, message } = req.body;
 
-        const newContact = new Contact({
-            name,
-            email,
-            subject,
-            message
-        });
-        await newContact.save();
+        // Validate input
+        if (!name || !email || !subject || !message) {
+            return res.status(400).json({
+                message: 'All fields are required',
+                received: { name, email, subject, message }
+            });
+        }
 
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
-            subject: `New Contact Form Submission: ${subject}`,
-            html: `
-                <h3>New Contact Form Submission</h3>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Subject:</strong> ${subject}</p>
-                <p><strong>Message:</strong> ${message}</p>
-            `
-        };
+        // Save to MongoDB
+        try {
+            const newContact = new Contact({
+                name,
+                email,
+                subject,
+                message
+            });
+            await newContact.save();
+            console.log('Saved to MongoDB');
+        } catch (dbError) {
+            console.error('MongoDB Error:', dbError);
+            return res.status(500).json({
+                message: 'Database error',
+                error: dbError.message
+            });
+        }
 
-        await transporter.sendMail(mailOptions);
+        // Send Email
+        try {
+            const mailOptions = {
+                from: {
+                    name: "Portfolio Contact Form",
+                    address: process.env.EMAIL_USER
+                },
+                to: process.env.EMAIL_USER,
+                subject: `New Contact Form Submission: ${subject}`,
+                html: `
+                    <h3>New Contact Form Submission</h3>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Subject:</strong> ${subject}</p>
+                    <p><strong>Message:</strong> ${message}</p>
+                `
+            };
+
+            await transporter.sendMail(mailOptions);
+            console.log('Email sent successfully');
+        } catch (emailError) {
+            console.error('Email Error:', emailError);
+            // Still return success if email fails but data is saved
+            return res.status(200).json({
+                message: 'Message saved but email notification failed',
+                emailError: emailError.message
+            });
+        }
+
         res.status(200).json({ message: 'Message sent successfully!' });
     } catch (error) {
         console.error('Server Error:', error);
-        res.status(500).json({ message: 'Error sending message', error: error.message });
+        res.status(500).json({
+            message: 'Server error processing your request',
+            error: error.message
+        });
     }
 });
 
@@ -91,4 +129,13 @@ app.post('/api/contact', async (req, res) => {
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
+});
+
+// Error handling
+process.on('uncaughtException', (error) => {
+    console.error('Uncaught Exception:', error);
+});
+
+process.on('unhandledRejection', (error) => {
+    console.error('Unhandled Rejection:', error);
 });

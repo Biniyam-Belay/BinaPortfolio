@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const API_URL = 'https://binaportfolio-backend.onrender.com' || 'http://localhost:10000';
+const API_URL = 'https://binaportfolio-backend.onrender.com';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
