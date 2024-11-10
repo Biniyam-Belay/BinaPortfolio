@@ -86,12 +86,12 @@ const Hero = () => {
                                     {techStack.development.map((tech) => (
                                         <div
                                             key={tech.name}
-                                            className="group relative w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
+                                            className="group relative w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
                                         >
                                             <img
                                                 src={tech.icon}
                                                 alt={tech.name}
-                                                className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
+                                                className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
                                             />
                                             <span className="absolute -bottom-8 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 {tech.name}
@@ -111,12 +111,12 @@ const Hero = () => {
                                     {techStack.design.map((tech) => (
                                         <div
                                             key={tech.name}
-                                            className="group relative w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
+                                            className="group relative w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
                                         >
                                             <img
                                                 src={tech.icon}
                                                 alt={tech.name}
-                                                className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
+                                                className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
                                             />
                                             <span className="absolute -bottom-8 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                                 {tech.name}

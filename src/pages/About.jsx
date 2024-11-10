@@ -1,12 +1,20 @@
 import photo2 from '../assets/photo2.png';
 
 const About = () => {
-    const skills = [
-        { name: 'UI/UX Design', percentage: '90%' },
-        { name: 'Graphic Design', percentage: '85%' },
-        { name: 'Brand Design', percentage: '80%' },
-        { name: 'Motion Design', percentage: '75%' },
-    ];
+    const skills = {
+        design: [
+            { name: 'UI/UX Design', percentage: '90%' },
+            { name: 'Graphic Design', percentage: '90%' },
+            { name: 'Brand Design', percentage: '85%' },
+            { name: 'Motion Design', percentage: '75%' },
+        ],
+        development: [
+            { name: 'React.js', percentage: '85%' },
+            { name: 'JavaScript', percentage: '90%' },
+            { name: 'HTML/CSS', percentage: '95%' },
+            { name: 'Node.js', percentage: '75%' },
+        ]
+    };
 
     return (
         <div className="relative min-h-screen w-full py-20 overflow-hidden bg-black" id="about">
@@ -44,7 +52,7 @@ const About = () => {
                             {/* Experience Box */}
                             <div className="absolute -bottom-6 -right-6 md:bottom-8 md:right-8 backdrop-blur-xl bg-white/10 border border-white/10 p-6 rounded-2xl shadow-lg">
                                 <div className="text-center">
-                                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-1">5+</h3>
+                                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-1">2+</h3>
                                     <p className="text-gray-400 text-sm">Years of Experience</p>
                                 </div>
                             </div>
@@ -66,37 +74,75 @@ const About = () => {
                                 I'm a passionate designer and developer with expertise in creating user-centric digital experiences with full functionality.
                             </p>
                             <p className="text-gray-400 leading-relaxed">
-                                My approach combines creativity with strategic thinking, ensuring that every design
+                                My approach combines creativity with strategic thinking, ensuring that every design is both aesthetic and functional.
                             </p>
                         </div>
 
-                        {/* Skills */}
-                        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8">
-                            <h3 className="text-xl font-bold text-white mb-8">My Skills</h3>
-                            <div className="space-y-6">
-                                {skills.map((skill, index) => (
-                                    <div key={index}>
-                                        <div className="flex justify-between mb-2">
-                                            <span className="text-gray-300">{skill.name}</span>
-                                            <span className="text-gray-400">{skill.percentage}</span>
+                        {/* Skills Section with Futuristic Design */}
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {/* Development Skills */}
+                            <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                                {/* Animated Background */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                <h3 className="text-xl font-bold text-white mb-6 relative">
+                                    Development Skills
+                                </h3>
+                                <div className="space-y-6 relative">
+                                    {skills.development.map((skill, index) => (
+                                        <div key={index} className="relative">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-gray-300">{skill.name}</span>
+                                                <span className="text-gray-400">{skill.percentage}</span>
+                                            </div>
+                                            <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transform origin-left transition-transform duration-1000 ease-out"
+                                                    style={{ width: skill.percentage }}
+                                                >
+                                                    <div className="absolute top-0 right-0 h-full w-4 bg-white/20 skew-x-12 animate-pulse"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                                            <div
-                                                className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-500 ease-out"
-                                                style={{ width: skill.percentage }}
-                                            ></div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Design Skills */}
+                            <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 relative overflow-hidden group">
+                                {/* Animated Background */}
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                <h3 className="text-xl font-bold text-white mb-6 relative">
+                                    Design Skills
+                                </h3>
+                                <div className="space-y-6 relative">
+                                    {skills.design.map((skill, index) => (
+                                        <div key={index} className="relative">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-gray-300">{skill.name}</span>
+                                                <span className="text-gray-400">{skill.percentage}</span>
+                                            </div>
+                                            <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                                                <div
+                                                    className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transform origin-left transition-transform duration-1000 ease-out"
+                                                    style={{ width: skill.percentage }}
+                                                >
+                                                    <div className="absolute top-0 right-0 h-full w-4 bg-white/20 skew-x-12 animate-pulse"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
                         {/* Quick Stats */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                             {[
-                                { number: '15+', label: 'Projects Done' },
-                                { number: '8+', label: 'Happy Clients' },
-                                { number: '12+', label: 'Awards Won' },
+                                { number: '10+', label: 'Projects Done' },
+                                { number: '10+', label: 'Happy Clients' },
+                                { number: '2+', label: 'Years' },
                                 { number: '100%', label: 'Satisfaction' },
                             ].map((stat, index) => (
                                 <div
