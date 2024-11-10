@@ -60,16 +60,13 @@ const About = () => {
                         {/* About Text */}
                         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8">
                             <h3 className="text-2xl font-bold text-white mb-4">
-                                UI/UX & Graphic Designer
+                                Graphic Designer, UI/UX Designer & Frontend Developer
                             </h3>
                             <p className="text-gray-400 leading-relaxed mb-6">
-                                I'm a passionate designer with expertise in creating user-centric digital experiences.
-                                With over 5 years of experience, I specialize in translating complex ideas into
-                                intuitive and visually appealing designs that drive engagement and deliver results.
+                                I'm a passionate designer and developer with expertise in creating user-centric digital experiences with full functionality.
                             </p>
                             <p className="text-gray-400 leading-relaxed">
                                 My approach combines creativity with strategic thinking, ensuring that every design
-                                not only looks beautiful but also serves its intended purpose effectively.
                             </p>
                         </div>
 
@@ -97,8 +94,8 @@ const About = () => {
                         {/* Quick Stats */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                             {[
-                                { number: '150+', label: 'Projects Done' },
-                                { number: '80+', label: 'Happy Clients' },
+                                { number: '15+', label: 'Projects Done' },
+                                { number: '8+', label: 'Happy Clients' },
                                 { number: '12+', label: 'Awards Won' },
                                 { number: '100%', label: 'Satisfaction' },
                             ].map((stat, index) => (

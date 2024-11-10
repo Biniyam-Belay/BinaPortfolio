@@ -8,6 +8,21 @@ const Hero = () => {
         }
     };
 
+    const techStack = {
+        development: [
+            { name: 'React', icon: '/icons/dev/react.svg' },
+            { name: 'Node.js', icon: '/icons/dev/node.svg' },
+            { name: 'TypeScript', icon: '/icons/dev/typescript.svg' },
+            { name: 'MongoDB', icon: '/icons/dev/mongodb.svg' }
+        ],
+        design: [
+            { name: 'Figma', icon: '/icons/design/figma.svg' },
+            { name: 'Photoshop', icon: '/icons/design/photoshop.svg' },
+            { name: 'Illustrator', icon: '/icons/design/illustrator.svg' },
+            { name: 'After Effects', icon: '/icons/design/aftereffects.svg' }
+        ]
+    };
+
     return (
         <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden" id="home">
             {/* Animated Background */}
@@ -38,7 +53,7 @@ const Hero = () => {
                             Crafting Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Experiences</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            UI/UX Designer & Developer crafting innovative digital solutions
+                            Graphic Designer, UI/UX Designer & Developer crafting innovative digital solutions
                             that combine aesthetic beauty with functional excellence.
                         </p>
                     </div>
@@ -61,23 +76,52 @@ const Hero = () => {
 
                     {/* Tech Stack */}
                     <div className="mt-12 pt-12 border-t border-white/10 flex flex-col items-center">
-                        <span className="text-gray-500 text-sm mb-4">Technologies I work with</span>
-                        <div className="flex flex-wrap justify-center gap-6">
-                            {['react', 'node', 'typescript', 'mongodb'].map((tech) => (
-                                <div
-                                    key={tech}
-                                    className="group relative w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
-                                >
-                                    <img
-                                        src={`/icons/${tech}.svg`}
-                                        alt={tech}
-                                        className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
-                                    />
-                                    <span className="absolute -bottom-8 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        {tech.charAt(0).toUpperCase() + tech.slice(1)}
-                                    </span>
+                        <span className="text-gray-500 text-sm mb-6">Technologies I work with</span>
+
+                        {/* Development Tools */}
+                        <div className="space-y-6">
+                            <div className="flex flex-col items-center">
+                                <span className="text-gray-400 text-sm mb-4">Development</span>
+                                <div className="flex flex-wrap justify-center gap-6">
+                                    {techStack.development.map((tech) => (
+                                        <div
+                                            key={tech.name}
+                                            className="group relative w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
+                                        >
+                                            <img
+                                                src={tech.icon}
+                                                alt={tech.name}
+                                                className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
+                                            />
+                                            <span className="absolute -bottom-8 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                {tech.name}
+                                            </span>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))}
+                            </div>
+
+                            {/* Design Tools */}
+                            <div className="flex flex-col items-center">
+                                <span className="text-gray-400 text-sm mb-4">Design</span>
+                                <div className="flex flex-wrap justify-center gap-6">
+                                    {techStack.design.map((tech) => (
+                                        <div
+                                            key={tech.name}
+                                            className="group relative w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
+                                        >
+                                            <img
+                                                src={tech.icon}
+                                                alt={tech.name}
+                                                className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
+                                            />
+                                            <span className="absolute -bottom-8 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                {tech.name}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
