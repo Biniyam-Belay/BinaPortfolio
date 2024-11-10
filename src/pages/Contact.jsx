@@ -9,21 +9,67 @@ const Contact = () => {
         subject: '',
         message: ''
     });
+    const [touched, setTouched] = useState({});
     const [status, setStatus] = useState({ type: '', message: '' });
     const [loading, setLoading] = useState(false);
+
+    // Validation rules
+    const validate = (values) => {
+        const errors = {};
+        if (!values.name) {
+            errors.name = 'Name is required';
+        }
+        if (!values.email) {
+            errors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+            errors.email = 'Email address is invalid';
+        }
+        if (!values.subject) {
+            errors.subject = 'Subject is required';
+        }
+        if (!values.message) {
+            errors.message = 'Message is required';
+        } else if (values.message.length < 10) {
+            errors.message = 'Message must be at least 10 characters';
+        }
+        return errors;
+    };
+
+    const errors = validate(formData);
+
+    const handleBlur = (e) => {
+        setTouched({ ...touched, [e.target.name]: true });
+    };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    const dismissNotification = () => {
+        setStatus({ type: '', message: '' });
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setTouched({
+            name: true,
+            email: true,
+            subject: true,
+            message: true
+        });
+
+        if (Object.keys(errors).length > 0) {
+            setStatus({
+                type: 'error',
+                message: 'Please fill in all required fields correctly.'
+            });
+            return;
+        }
+
         setLoading(true);
         setStatus({ type: '', message: '' });
 
         try {
-            console.log('Sending data:', formData);
-
             const response = await fetch(`${API_URL}/api/contact`, {
                 method: 'POST',
                 headers: {
@@ -33,14 +79,12 @@ const Contact = () => {
                 body: JSON.stringify(formData)
             });
 
-            console.log('Response status:', response.status);
-
             const data = await response.json();
-            console.log('Response data:', data);
 
             if (response.ok) {
                 setStatus({ type: 'success', message: 'Message sent successfully!' });
                 setFormData({ name: '', email: '', subject: '', message: '' });
+                setTouched({});
             } else {
                 setStatus({
                     type: 'error',
@@ -48,7 +92,6 @@ const Contact = () => {
                 });
             }
         } catch (error) {
-            console.error('Fetch Error:', error);
             setStatus({
                 type: 'error',
                 message: `Connection error: ${error.message}. Please try again.`
@@ -57,6 +100,16 @@ const Contact = () => {
             setLoading(false);
         }
     };
+
+    const getInputClassName = (fieldName) => `
+        w-full px-4 py-3 rounded-xl bg-white/5 border
+        ${touched[fieldName] && errors[fieldName]
+            ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500'
+            : 'border-white/10 focus:border-purple-500 focus:ring-purple-500'
+        }
+        text-white focus:outline-none focus:ring-1 transition-all duration-300
+        ${touched[fieldName] && !errors[fieldName] && 'border-green-500/50'}
+    `;
 
     return (
         <div className="relative min-h-screen w-full py-20 overflow-hidden" id="contact">
@@ -120,69 +173,118 @@ const Contact = () => {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="text-gray-300 text-sm mb-2 block">Your Name</label>
+                                    <label className="text-gray-300 text-sm mb-2 block">
+                                        Your Name
+                                        <span className="text-red-400 ml-1">*</span>
+                                    </label>
                                     <input
                                         type="text"
                                         name="name"
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-300"
+                                        onBlur={handleBlur}
+                                        className={getInputClassName('name')}
                                         placeholder="Your Name"
-                                        required
                                     />
+                                    {touched.name && errors.name && (
+                                        <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+                                    )}
                                 </div>
                                 <div>
-                                    <label className="text-gray-300 text-sm mb-2 block">Your Email</label>
+                                    <label className="text-gray-300 text-sm mb-2 block">
+                                        Your Email
+                                        <span className="text-red-400 ml-1">*</span>
+                                    </label>
                                     <input
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-300"
+                                        onBlur={handleBlur}
+                                        className={getInputClassName('email')}
                                         placeholder="your@email.com"
-                                        required
                                     />
+                                    {touched.email && errors.email && (
+                                        <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+                                    )}
                                 </div>
                             </div>
+
                             <div>
-                                <label className="text-gray-300 text-sm mb-2 block">Subject</label>
+                                <label className="text-gray-300 text-sm mb-2 block">
+                                    Subject
+                                    <span className="text-red-400 ml-1">*</span>
+                                </label>
                                 <input
                                     type="text"
                                     name="subject"
                                     value={formData.subject}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-300"
+                                    onBlur={handleBlur}
+                                    className={getInputClassName('subject')}
                                     placeholder="Project Inquiry"
-                                    required
                                 />
+                                {touched.subject && errors.subject && (
+                                    <p className="mt-1 text-sm text-red-400">{errors.subject}</p>
+                                )}
                             </div>
+
                             <div>
-                                <label className="text-gray-300 text-sm mb-2 block">Message</label>
+                                <label className="text-gray-300 text-sm mb-2 block">
+                                    Message
+                                    <span className="text-red-400 ml-1">*</span>
+                                </label>
                                 <textarea
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
+                                    onBlur={handleBlur}
                                     rows="4"
-                                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-purple-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all duration-300"
+                                    className={getInputClassName('message')}
                                     placeholder="Your message here..."
-                                    required
                                 ></textarea>
+                                {touched.message && errors.message && (
+                                    <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+                                )}
                             </div>
 
                             {status.message && (
-                                <div className={`p-4 rounded-xl ${
+                                <div className={`relative p-4 pr-12 rounded-xl ${
                                     status.type === 'success'
                                         ? 'bg-green-500/10 text-green-400 border border-green-500/20'
                                         : 'bg-red-500/10 text-red-400 border border-red-500/20'
                                 }`}>
-                                    {status.message}
+                                    <div className="flex items-center">
+                                        <span className="mr-2">
+                                            {status.type === 'success' ? (
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            ) : (
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            )}
+                                        </span>
+                                        {status.message}
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={dismissNotification}
+                                        className="absolute top-4 right-4 hover:opacity-75 transition-opacity"
+                                        aria-label="Dismiss notification"
+                                    >
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
                                 </div>
                             )}
 
                             <button
                                 type="submit"
-                                disabled={loading}
-                                className="w-full px-8 py-4 rounded-xl text-sm font-medium bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 disabled:opacity-50"
+                                disabled={loading || Object.keys(errors).length > 0}
+                                className="w-full px-8 py-4 rounded-xl text-sm font-medium bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 {loading ? (
                                     <span className="flex items-center justify-center">
