@@ -54,7 +54,7 @@ export default function Navbar() {
                         {/* Logo */}
                         <div className="font-bold text-xl md:text-2xl">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
-                                Portfolio.
+                                BinaPortfolio.
                             </span>
                         </div>
 

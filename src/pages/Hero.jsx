@@ -32,7 +32,7 @@ const Hero = () => {
             </div>
 
             {/* Main Content */}
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="container mt-[10rem] mx-auto px-4 md:px-6 relative z-10">
                 <div className="flex flex-col items-center text-center mb-12">
                     {/* Profile Image */}
                     <div className="relative w-32 h-32 md:w-40 md:h-40 mb-8">
@@ -75,11 +75,11 @@ const Hero = () => {
                     </div>
 
                     {/* Tech Stack */}
-                    <div className="mt-12 pt-12 border-t border-white/10 flex flex-col items-center">
-                        <span className="text-gray-500 text-sm mb-6">Technologies I work with</span>
+                    <div className="mt-12 pt-12 border-t border-white/10">
+                        <span className="text-gray-500 text-sm mb-8 block text-center">Technologies I work with</span>
 
-                        {/* Development Tools */}
-                        <div className="space-y-6">
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                            {/* Development Tools */}
                             <div className="flex flex-col items-center">
                                 <span className="text-gray-400 text-sm mb-4">Development</span>
                                 <div className="flex flex-wrap justify-center gap-6">
@@ -100,6 +100,9 @@ const Hero = () => {
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Vertical Divider */}
+                            <div className="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
 
                             {/* Design Tools */}
                             <div className="flex flex-col items-center">
