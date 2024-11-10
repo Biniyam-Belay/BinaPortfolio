@@ -31,7 +31,7 @@ const Hero = () => {
             { name: 'Figma', icon: '/icons/design/figma.svg' },
             { name: 'Photoshop', icon: '/icons/design/photoshop.svg' },
             { name: 'Illustrator', icon: '/icons/design/illustrator.svg' },
-            { name: 'After Effects', icon: '/icons/design/aftereffects.svg' }
+            { name: 'Indesign', icon: '/icons/design/indesign.svg' }
         ]
     };
 
