@@ -17,8 +17,12 @@ module.exports = {
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '0%, 100%': {
+            transform: 'translate3d(0, 0, 0)'
+          },
+          '50%': {
+            transform: 'translate3d(0, -20px, 0)'
+          },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },

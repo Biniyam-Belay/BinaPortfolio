@@ -1,6 +1,18 @@
 import photo from '../assets/photo.png';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -29,6 +41,110 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(76,29,149,0.1),rgba(0,0,0,0.2))]"></div>
                 <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,rgba(76,29,149,0.05)_0%,rgba(59,130,246,0.05)_100%)]"></div>
+            </div>
+
+            {/* Left Side - Floating Code Editor */}
+            <div
+                className="absolute left-10 top-[30%] -translate-y-1/2 w-[300px] hidden xl:block"
+                style={{
+                    transform: `translate3d(${scrollY * 0.1}px, calc(-50% + ${scrollY * 0.2}px), 0px)`,
+                    animation: 'float 6s ease-in-out infinite'
+                }}
+            >
+                <div className="relative backdrop-blur-xl bg-black/30 rounded-2xl border border-white/10 p-6 transform hover:translate-x-2 transition-transform duration-500 hover:shadow-xl hover:shadow-purple-500/10">
+                    {/* Code Editor Header */}
+                    <div className="flex items-center mb-4">
+                        <div className="flex gap-1.5">
+                            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <div className="text-xs text-gray-400 ml-3">App.jsx</div>
+                    </div>
+
+                    {/* Code Content */}
+                    <div className="space-y-2 font-mono text-sm">
+                        <div className="text-blue-400">import <span className="text-white">React</span> from <span className="text-orange-300">'react'</span>;</div>
+                        <div className="text-blue-400">import <span className="text-white">{'{ motion }'}</span> from <span className="text-orange-300">'framer-motion'</span>;</div>
+                        <div className="text-white"></div>
+                        <div>
+                            <span className="text-purple-400">const</span>{' '}
+                            <span className="text-green-400">HeroSection</span>{' '}
+                            <span className="text-white">= () =></span>{' '}
+                            <span className="text-white">{'{'}</span>
+                        </div>
+                        <div className="pl-4">
+                            <span className="text-purple-400">return</span>{' '}
+                            <span className="text-white">(</span>
+                        </div>
+                        <div className="pl-8 text-blue-300">{'<motion.div'}</div>
+                        <div className="pl-12 text-purple-300">animate<span className="text-white">=</span><span className="text-orange-300">{'{'}</span></div>
+                        <div className="pl-16 text-white">scale: <span className="text-yellow-300">1.1</span></div>
+                        <div className="pl-12 text-orange-300">{'}'}</div>
+                        <div className="pl-8 text-blue-300">{'>'}</div>
+                        <div className="pl-4 text-white">);</div>
+                        <div className="text-white">{'}'}</div>
+                    </div>
+
+                    {/* Animated Cursor */}
+                    <div className="w-2 h-5 bg-white/70 absolute bottom-8 left-14 animate-pulse"></div>
+                </div>
+            </div>
+
+            {/* Right Side - Design UI Mock */}
+            <div
+                className="absolute right-10 top-[30%] -translate-y-1/2 w-[300px] hidden xl:block"
+                style={{
+                    transform: `translate3d(${scrollY * -0.1}px, calc(-50% + ${scrollY * 0.15}px), 0px)`,
+                    animation: 'float 6s ease-in-out infinite reverse'
+                }}
+            >
+                <div className="relative backdrop-blur-xl bg-black/30 rounded-2xl border border-white/10 p-6 transform hover:-translate-x-2 transition-transform duration-500 hover:shadow-xl hover:shadow-blue-500/10">
+                    {/* Design Tool Header */}
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="text-sm text-gray-400">design.fig</div>
+                        <div className="flex gap-3">
+                            <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                                <div className="w-4 h-4 rounded-sm bg-purple-500/50"></div>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                                <div className="w-4 h-4 rounded-sm bg-blue-500/50"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Design Elements */}
+                    <div className="space-y-4">
+                        <div className="h-24 rounded-xl bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-white/5 p-4">
+                            <div className="w-1/2 h-3 bg-white/20 rounded-full mb-3"></div>
+                            <div className="w-3/4 h-3 bg-white/10 rounded-full mb-3"></div>
+                            <div className="w-2/3 h-3 bg-white/5 rounded-full"></div>
+                        </div>
+                        <div className="flex gap-3">
+                            <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
+                                <div className="w-5 h-5 rounded-sm bg-purple-500/30"></div>
+                            </div>
+                            <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
+                                <div className="w-5 h-5 rounded-sm bg-blue-500/30"></div>
+                            </div>
+                            <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center">
+                                <div className="w-5 h-5 rounded-sm bg-green-500/30"></div>
+                            </div>
+                        </div>
+                        <div className="h-20 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/5 p-4">
+                            <div className="flex gap-3 items-center">
+                                <div className="w-8 h-8 rounded-lg bg-white/10"></div>
+                                <div className="flex-1">
+                                    <div className="w-3/4 h-2 bg-white/20 rounded-full mb-2"></div>
+                                    <div className="w-1/2 h-2 bg-white/10 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Animated Design Cursor */}
+                    <div className="w-4 h-4 border-2 border-purple-500/50 rounded-full absolute bottom-8 right-8 animate-ping"></div>
+                </div>
             </div>
 
             {/* Main Content */}
