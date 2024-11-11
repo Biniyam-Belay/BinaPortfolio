@@ -20,21 +20,6 @@ const Hero = () => {
         }
     };
 
-    const techStack = {
-        development: [
-            { name: 'React', icon: '/icons/dev/react.svg' },
-            { name: 'Node.js', icon: '/icons/dev/node.svg' },
-            { name: 'TypeScript', icon: '/icons/dev/typescript.svg' },
-            { name: 'MongoDB', icon: '/icons/dev/mongodb.svg' }
-        ],
-        design: [
-            { name: 'Figma', icon: '/icons/design/figma.svg' },
-            { name: 'Photoshop', icon: '/icons/design/photoshop.svg' },
-            { name: 'Illustrator', icon: '/icons/design/illustrator.svg' },
-            { name: 'Indesign', icon: '/icons/design/indesign.svg' }
-        ]
-    };
-
     return (
         <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden" id="home">
             {/* Animated Background */}
@@ -188,60 +173,6 @@ const Hero = () => {
                         >
                             Let's Connect
                         </button>
-                    </div>
-
-                    {/* Tech Stack */}
-                    <div className="mt-12 pt-12 border-t border-white/10">
-                        <span className="text-gray-500 text-sm mb-8 block text-center">Technologies I work with</span>
-
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-                            {/* Development Tools */}
-                            <div className="flex flex-col items-center">
-                                <span className="text-gray-400 text-sm mb-4">Development</span>
-                                <div className="flex flex-wrap justify-center gap-6">
-                                    {techStack.development.map((tech) => (
-                                        <div
-                                            key={tech.name}
-                                            className="group relative w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
-                                        >
-                                            <img
-                                                src={tech.icon}
-                                                alt={tech.name}
-                                                className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
-                                            />
-                                            <span className="absolute -bottom-8 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                {tech.name}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Vertical Divider */}
-                            <div className="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
-
-                            {/* Design Tools */}
-                            <div className="flex flex-col items-center">
-                                <span className="text-gray-400 text-sm mb-4">Design</span>
-                                <div className="flex flex-wrap justify-center gap-6">
-                                    {techStack.design.map((tech) => (
-                                        <div
-                                            key={tech.name}
-                                            className="group relative w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-all duration-300 backdrop-blur-xl"
-                                        >
-                                            <img
-                                                src={tech.icon}
-                                                alt={tech.name}
-                                                className="w-8 h-8 group-hover:scale-110 transition-transform duration-300"
-                                            />
-                                            <span className="absolute -bottom-8 text-xs text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                {tech.name}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
