@@ -67,18 +67,10 @@ const Footer = () => {
                 <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-400 text-sm text-center md:text-left">
+                <div className="pt-8 flex justify-center items-center">
+                    <p className="text-gray-400 text-sm text-center">
                         © {currentYear} BinaPortfolio. All rights reserved.
                     </p>
-                    <div className="flex gap-6">
-                        <a href="#privacy" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                            Privacy Policy
-                        </a>
-                        <a href="#terms" className="text-gray-400 hover:text-white text-sm transition-colors duration-300">
-                            Terms of Service
-                        </a>
-                    </div>
                 </div>
             </div>
 
