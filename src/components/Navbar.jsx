@@ -41,8 +41,8 @@ export default function Navbar() {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+            setActiveItem(id); // Set active immediately on click
         }
-        setActiveItem(id);
         setIsMenuOpen(false);
     };
 
@@ -52,9 +52,12 @@ export default function Navbar() {
                 <div className="backdrop-blur-xl bg-black/30 rounded-2xl border border-white/10 shadow-lg">
                     <div className="flex justify-between items-center p-4 md:p-5">
                         {/* Logo */}
-                        <div className="font-bold text-xl md:text-2xl">
+                        <div
+                            onClick={() => scrollToSection('home')}
+                            className="font-bold text-xl md:text-2xl cursor-pointer"
+                        >
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">
-                                BinaPortfolio.
+                                Portfolio.
                             </span>
                         </div>
 
@@ -68,9 +71,10 @@ export default function Navbar() {
                                             ${activeItem === item.id ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                                     >
                                         {item.label}
-                                        {activeItem === item.id && (
-                                            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full"></span>
-                                        )}
+                                        <span
+                                            className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all duration-300
+                                                ${activeItem === item.id ? 'opacity-100' : 'opacity-0'}`}
+                                        ></span>
                                     </button>
                                 </li>
                             ))}

@@ -70,7 +70,7 @@ const Hero = () => {
                         <div>
                             <span className="text-purple-400">const</span>{' '}
                             <span className="text-green-400">HeroSection</span>{' '}
-                            <span className="text-white">= () =></span>{' '}
+                            <span className="text-white">= () {'>'}</span>{' '}
                             <span className="text-white">{'{'}</span>
                         </div>
                         <div className="pl-4">
