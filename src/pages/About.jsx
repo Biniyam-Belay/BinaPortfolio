@@ -105,7 +105,7 @@ const About = () => {
                             {/* Bio Content */}
                             <div className="flex-1">
                                 <h3 className="text-3xl font-bold text-white mb-6">
-                                    Digital Craftsman
+                                    Biniyam Belay
                                 </h3>
                                 <p className="text-gray-300 leading-relaxed mb-4">
                                 I specialize in building immersive websites that combine modern aesthetics with robust functionality. With a passion for both frontend development and design, I bridge the gap between creative vision and technical execution.

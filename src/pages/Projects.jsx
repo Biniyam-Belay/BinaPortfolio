@@ -15,6 +15,18 @@ import Brainwave3 from '../assets/Brainwave3.png';
 import Brainwave4 from '../assets/Brainwave4.png';
 import Brainwave5 from '../assets/Brainwave5.png';
 
+import Sirtonamain from '../assets/Sirtonamain.png';
+import Sirtona2 from '../assets/Sirtona2.png';
+import Sirtona3 from '../assets/Sirtona3.png';
+import Sirtona4 from '../assets/Sirtona4.png';
+
+import BiruhT from '../assets/BiruhT.png';
+import Biruh2 from '../assets/Biruh2.png';
+import Biruh4 from '../assets/Biruh4.png';
+import Biruh5 from '../assets/Biruh5.png';
+import Biruhmain from '../assets/Biruhmain.png';
+
+
 const Projects = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [selectedProject, setSelectedProject] = useState(null);
@@ -62,10 +74,10 @@ const Projects = () => {
             githubUrl: "https://github.com/Biniyam-Belay/IphoneWebsite_Clone"
         },
         {
-            title: "Brand Identity System",
+            title: "Biruh Tutors",
             category: "Branding",
-            description: "Complete brand identity design for tech startup",
-            image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2942&auto=format&fit=crop",
+            description: "Complete brand identity design for tech startup providing online learning platform for student.",
+            image: BiruhT,
             size: "tall",
             client: "Tech Innovators Ltd",
             role: "Brand Designer",
@@ -74,27 +86,28 @@ const Projects = () => {
             overview: "Comprehensive brand identity system including logo, typography, color palette, and brand guidelines.",
             process: "Deep market research, competitor analysis, and multiple design iterations to create a unique and memorable brand identity.",
             gallery: [
-                "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2942&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2942&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1634942537414-3bef9f0c3cc0?q=80&w=2942&auto=format&fit=crop"
+                Biruh2,
+                Biruhmain,
+                Biruh5,
+                Biruh4
             ]
         },
         {
-            title: "Social Media Platform",
-            category: "Web Development",
-            description: "Full-stack social media platform with real-time features",
-            image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=2940&auto=format&fit=crop",
+            title: "Sirtona",
+            category: "Branding",
+            description: "Complete brand identity design for tech startup collecting and providing realtime user experience and marketing strategies for companies and customer on different products",
+            image: Sirtonamain,
             size: "small",
-            client: "Social Connect Inc",
-            role: "Full Stack Developer",
-            timeline: "6 months",
-            technologies: "React, Node.js, Socket.io",
-            overview: "A modern social media platform with real-time messaging, post sharing, and user interactions.",
-            process: "Implemented complex real-time features, user authentication, and scalable architecture.",
+            client: "Sirtona",
+            role: "Graphic Designer",
+            timeline: "4 months",
+            technologies: "Adobe Photoshop , Adobe Illustrator, Affinity Designer, Affinity Publisher",
+            overview: "Complete brand identity design for tech startup collecting and providing realtime user experience and marketing strategies for companies and customer on different products",
+            // process: "Implemented complex real-time features, user authentication, and scalable architecture.",
             gallery: [
-                "https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=2940&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?q=80&w=2940&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1611162616305-c69b3037c7bb?q=80&w=2940&auto=format&fit=crop"
+                // Sirtona2,
+                // Sirtona3,
+                Sirtona4
             ]
         },
         {

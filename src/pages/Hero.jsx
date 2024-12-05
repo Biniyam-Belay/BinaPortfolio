@@ -148,7 +148,7 @@ const Hero = () => {
                     {/* Main Text */}
                     <div className="space-y-4 max-w-3xl">
                         <h2 className="text-purple-500 text-lg md:text-xl font-medium tracking-wide">
-                            Welcome to my creative space
+                           Welcome to my creative space
                         </h2>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
                             Building Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Solutions</span>
