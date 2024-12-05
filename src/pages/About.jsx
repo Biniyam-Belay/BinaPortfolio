@@ -90,10 +90,10 @@ const About = () => {
                                 </div>
 
                                 {/* Experience Box */}
-                                <div className="absolute -bottom-4 -right-4 backdrop-blur-xl bg-white/10 border border-white/10 p-4 rounded-2xl shadow-lg transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500">
+                                <div className="absolute -bottom-1 -right-1 backdrop-blur-xl bg-white/10 border border-white/10 p-4 rounded-2xl shadow-lg transform group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500">
                                     <div className="text-center">
                                         <h3 className="text-2xl font-bold text-white mb-1">2+</h3>
-                                        <p className="text-gray-400 text-xs">Years of Experience</p>
+                                        <p className="text-black text-sm">Years of Experience</p>
                                     </div>
                                 </div>
 

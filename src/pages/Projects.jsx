@@ -79,7 +79,7 @@ const Projects = () => {
             description: "Complete brand identity design for tech startup providing online learning platform for student.",
             image: BiruhT,
             size: "tall",
-            client: "Tech Innovators Ltd",
+            client: "Biruh Tutors",
             role: "Brand Designer",
             timeline: "2 months",
             technologies: "Adobe Suite, Figma",
@@ -102,7 +102,7 @@ const Projects = () => {
             role: "Graphic Designer",
             timeline: "4 months",
             technologies: "Adobe Photoshop , Adobe Illustrator, Affinity Designer, Affinity Publisher",
-            overview: "Complete brand identity design for tech startup collecting and providing realtime user experience and marketing strategies for companies and customer on different products",
+            overview: "Comprehensive brand identity system including logo, typography, color palette, and brand guidelines.",
             // process: "Implemented complex real-time features, user authentication, and scalable architecture.",
             gallery: [
                 // Sirtona2,
@@ -123,7 +123,7 @@ const Projects = () => {
             overview: "A modern, fully responsive website, with customize animation and eye catching UI design.",
             // process: "Integration of machine learning models, development of interactive dashboards, and implementation of real-time data processing.",
             gallery: [
-                Brainwave2,
+                Brainwavehome,
                 Brainwave3,
                 Brainwave4,
                 Brainwave5
