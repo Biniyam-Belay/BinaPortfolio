@@ -1,5 +1,19 @@
 import { useState } from 'react';
 import ProjectModal from '../components/ProjectModal';
+import Nikehome from '../assets/Nikehome.png';
+import Nike2 from '../assets/Nike2.png';
+import Nike3 from '../assets/Nike3.png'
+import Nike4 from '../assets/Nike4.png'
+
+import Iphonehome from '../assets/Iphonehome.png';
+import Iphone2 from '../assets/Iphone2.png';
+import Iphone3 from '../assets/Iphone3.png'
+
+import Brainwavehome from '../assets/Brainwavehome.png';
+import Brainwave2 from '../assets/Brainwave2.png';
+import Brainwave3 from '../assets/Brainwave3.png';
+import Brainwave4 from '../assets/Brainwave4.png';
+import Brainwave5 from '../assets/Brainwave5.png';
 
 const Projects = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -7,43 +21,45 @@ const Projects = () => {
 
     const projects = [
         {
-            title: "E-commerce Dashboard",
+            title: "Nike Landing Page Clone",
             category: "Web Development",
-            description: "Modern e-commerce analytics dashboard with real-time data visualization",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+            description: "A modern, fully responsive clone of the official Nike website Landing Page, designed to deliver an immersive online shopping experience.",
+            image: Nikehome,
             size: "large",
-            client: "E-commerce Solutions Inc.",
-            role: "Lead Developer",
-            timeline: "4 months",
-            technologies: "React.js, Node.js, MongoDB",
-            overview: "A comprehensive dashboard that helps e-commerce businesses track sales, inventory, and customer behavior in real-time.",
-            process: "The development process included extensive research on user needs, multiple iterations of the UI design, and implementation of complex data visualization components.",
+            client: "Portfolio Project",
+            role: "Developer",
+            timeline: "1 Weeks",
+            technologies: "React.js and TailwindCSS",
+            overview: "This project incorporates smooth navigation, product display.",
+            // process: "The development process included extensive research on user needs, multiple iterations of the UI design, and implementation of complex data visualization components.",
             gallery: [
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2944&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2938&auto=format&fit=crop"
+                Nikehome,
+                Nike2,
+                Nike3,
+                Nike4
             ],
-            liveUrl: "https://example.com",
-            githubUrl: "https://github.com/example"
+            liveUrl: "https://binanikeclone.netlify.app/",
+            githubUrl: "https://github.com/Biniyam-Belay/NIkeClone"
         },
         {
-            title: "Mobile Banking App",
-            category: "UI/UX Design",
-            description: "User-centric mobile banking application design",
-            image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2940&auto=format&fit=crop",
+            title: "Iphone Website Clone",
+            category: "Web Development",
+            description: "An Iphone 15 website clone, with integrated 3D product display with ThreeJs.",
+            image: Iphonehome,
             size: "small",
-            client: "FinTech Startup",
-            role: "UI/UX Designer",
-            timeline: "3 months",
-            technologies: "Figma, Protopie",
-            overview: "A modern mobile banking application focused on providing seamless financial management experience.",
-            process: "Extensive user research, wireframing, and prototyping to create an intuitive and secure banking experience.",
+            client: "Portfolio Project",
+            role: "Developer",
+            timeline: "2 Weeks",
+            technologies: "React, TailwindCSS, ThreeJs, Gsap",
+            overview: "An Iphone 15 website clone, with integrated 3D product display with ThreeJs.",
+            // process: "Extensive user research, wireframing, and prototyping to create an intuitive and secure banking experience.",
             gallery: [
-                "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=2940&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1556740758-90de374c12ad?q=80&w=2940&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1556740714-a8395b3bf30e?q=80&w=2940&auto=format&fit=crop"
-            ]
+                Iphonehome,
+                Iphone2,
+                Iphone3
+            ],
+            liveUrl: "https://binaiphoneclone.netlify.app/",
+            githubUrl: "https://github.com/Biniyam-Belay/IphoneWebsite_Clone"
         },
         {
             title: "Brand Identity System",
@@ -82,22 +98,25 @@ const Projects = () => {
             ]
         },
         {
-            title: "AI-Powered Analytics",
+            title: "Brainwave",
             category: "Web Development",
-            description: "Advanced analytics platform with AI capabilities",
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
+            description: "A modern, fully responsive website, with customize animation and eye catching UI design.",
+            image: Brainwavehome,
             size: "wide",
-            client: "Data Analytics Corp",
-            role: "Lead Developer",
-            timeline: "5 months",
-            technologies: "Python, TensorFlow, React",
-            overview: "An AI-powered analytics platform that provides predictive insights and data visualization.",
-            process: "Integration of machine learning models, development of interactive dashboards, and implementation of real-time data processing.",
+            client: "Portfolio Project",
+            role: "Developer",
+            timeline: "2 Weeks",
+            technologies: "React, TailwindCSS, Gsap",
+            overview: "A modern, fully responsive website, with customize animation and eye catching UI design.",
+            // process: "Integration of machine learning models, development of interactive dashboards, and implementation of real-time data processing.",
             gallery: [
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
-            ]
+                Brainwave2,
+                Brainwave3,
+                Brainwave4,
+                Brainwave5
+            ],
+            liveUrl: "https://binabrainwaveclone.netlify.app/",
+            githubUrl: "https://github.com/Biniyam-Belay/brainwave"
         }
     ];
 

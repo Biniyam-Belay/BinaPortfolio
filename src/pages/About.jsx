@@ -30,7 +30,7 @@ const About = () => {
 
     const stats = [
         { number: '2+', label: 'Years of Learning and Growth' },
-        { number: '8+', label: 'Portfolio Projects' },
+        { number: '5+', label: 'Portfolio Projects' },
         { number: '100%', label: 'Commitment to Excellence' },
         { number: 'Driven', label: 'by Passion' },
     ];
