@@ -3,16 +3,16 @@ import photo2 from '../assets/photo2.png';
 const About = () => {
     const expertise = [
         {
-            title: "UI/UX Design",
-            icon: "🎨",
-            description: "Creating intuitive and engaging user experiences",
-            gradient: "from-pink-500 to-purple-500"
-        },
-        {
             title: "Web Development",
             icon: "💻",
             description: "Building responsive and dynamic web applications",
             gradient: "from-purple-500 to-blue-500"
+        },
+        {
+            title: "UI/UX Design",
+            icon: "🎨",
+            description: "Creating intuitive and engaging user experiences",
+            gradient: "from-pink-500 to-purple-500"
         },
         {
             title: "Graphic Design",
@@ -29,10 +29,10 @@ const About = () => {
     ];
 
     const stats = [
-        { number: '2+', label: 'Years Experience' },
-        { number: '80+', label: 'Happy Clients' },
-        { number: '12+', label: 'Awards Won' },
-        { number: '100%', label: 'Satisfaction' }
+        { number: '2+', label: 'Years of Learning and Growth' },
+        { number: '8+', label: 'Portfolio Projects' },
+        { number: '100%', label: 'Commitment to Excellence' },
+        { number: 'Driven', label: 'by Passion' },
     ];
 
     const techStack = {
@@ -108,10 +108,10 @@ const About = () => {
                                     Digital Craftsman
                                 </h3>
                                 <p className="text-gray-300 leading-relaxed mb-4">
-                                    I specialize in creating immersive digital experiences that combine aesthetic beauty with functional excellence. With a passion for both design and development, I bridge the gap between creativity and technology.
+                                I specialize in building immersive websites that combine modern aesthetics with robust functionality. With a passion for both frontend development and design, I bridge the gap between creative vision and technical execution.
                                 </p>
                                 <p className="text-gray-300 leading-relaxed mb-8">
-                                    My goal is to push the boundaries of digital design while ensuring intuitive user experiences that leave a lasting impression.
+                                My goal is to push the boundaries of web development by crafting responsive, user-friendly digital experiences that leave a lasting impact, while ensuring visually stunning designs are an integral part of every project.
                                 </p>
 
                                 {/* Tech Stack Section */}

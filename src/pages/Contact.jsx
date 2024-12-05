@@ -155,16 +155,24 @@ const Contact = () => {
 
                             {/* Social Links */}
                             <div className="flex gap-4 mt-8">
-                                {["github", "linkedin", "twitter", "instagram"].map((social) => (
+                                {[
+                                    { name: "github", url: "https://github.com/biniyam-belay" },
+                                { name: "linkedin", url: "https://www.linkedin.com/in/biniyam-belay-147673270/" },
+                                { name: "twitter", url: "https://x.com/biniy_am" },
+                                { name: "instagram", url: "https://www.instagram.com/biniya_am/" },
+                                ].map((social) => (
                                     <a
-                                        key={social}
-                                        href={`#${social}`}
+                                        key={social.name}
+                                        href={social.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="w-12 h-12 rounded-xl backdrop-blur-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all duration-300"
                                     >
-                                        <i className={`fab fa-${social} text-xl`}></i>
+                                        <i className={`fab fa-${social.name} text-xl`}></i>
                                     </a>
                                 ))}
                             </div>
+
                         </div>
                     </div>
 
@@ -249,11 +257,10 @@ const Contact = () => {
                             </div>
 
                             {status.message && (
-                                <div className={`relative p-4 pr-12 rounded-xl ${
-                                    status.type === 'success'
+                                <div className={`relative p-4 pr-12 rounded-xl ${status.type === 'success'
                                         ? 'bg-green-500/10 text-green-400 border border-green-500/20'
                                         : 'bg-red-500/10 text-red-400 border border-red-500/20'
-                                }`}>
+                                    }`}>
                                     <div className="flex items-center">
                                         <span className="mr-2">
                                             {status.type === 'success' ? (

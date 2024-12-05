@@ -141,7 +141,7 @@ const Hero = () => {
                         <img
                             src={photo}
                             alt="Profile"
-                            className="relative rounded-full w-full h-full object-cover border-2 border-white/10"
+                            className="pointer-events-none relative rounded-full w-full h-full object-cover border-2 border-white/10"
                         />
                     </div>
 
@@ -151,11 +151,11 @@ const Hero = () => {
                             Welcome to my creative space
                         </h2>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                            Crafting Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Experiences</span>
+                            Building Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Solutions</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Graphic Designer, UI/UX Designer & Developer crafting innovative digital solutions
-                            that combine aesthetic beauty with functional excellence.
+                        Frontend Developer and Web Designer creating visually stunning, responsive, and user-friendly websites
+                        that turn your ideas into seamless digital experiences.
                         </p>
                     </div>
 

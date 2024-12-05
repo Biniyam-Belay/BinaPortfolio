@@ -17,16 +17,24 @@ const Footer = () => {
                             Creating meaningful digital experiences through innovative design and thoughtful functionality.
                         </p>
                         <div className="flex gap-4">
-                            {["github", "linkedin", "twitter", "instagram"].map((social) => (
+                            {[
+                                { name: "github", url: "https://github.com/biniyam-belay" },
+                                { name: "linkedin", url: "https://www.linkedin.com/in/biniyam-belay-147673270/" },
+                                { name: "twitter", url: "https://x.com/biniy_am" },
+                                { name: "instagram", url: "https://www.instagram.com/biniya_am/" },
+                            ].map((social) => (
                                 <a
-                                    key={social}
-                                    href={`#${social}`}
+                                    key={social.name}
+                                    href={social.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-10 h-10 rounded-xl backdrop-blur-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-300"
                                 >
-                                    <i className={`fab fa-${social}`}></i>
+                                    <i className={`fab fa-${social.name}`}></i>
                                 </a>
                             ))}
                         </div>
+
                     </div>
 
                     {/* Quick Links */}
@@ -49,7 +57,7 @@ const Footer = () => {
                         <ul className="space-y-3">
                             <li className="text-gray-400">
                                 <i className="fas fa-envelope mr-2"></i>
-                                yeabubina@gmail.com
+                                binibelaygom@gmail.com
                             </li>
                             <li className="text-gray-400">
                                 <i className="fas fa-phone mr-2"></i>
@@ -69,7 +77,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="pt-8 flex justify-center items-center">
                     <p className="text-gray-400 text-sm text-center">
-                        © {currentYear} BinaPortfolio. All rights reserved.
+                        © {currentYear} Developed by Biniyam Belay.
                     </p>
                 </div>
             </div>
