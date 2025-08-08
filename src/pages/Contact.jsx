@@ -112,25 +112,26 @@ const Contact = () => {
     `;
 
     return (
-        <div className="relative min-h-screen w-full py-20 overflow-hidden" id="contact">
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black to-black/95"></div>
+        <div className="relative min-h-screen w-full pt-24 pb-20 overflow-hidden" id="contact">
+            {/* Background matching Hero */}
+            <div className="absolute inset-0 bg-black">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(76,29,149,0.08),rgba(0,0,0,0.2))]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:120px_120px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_70%)]"></div>
+            </div>
 
             {/* Content Container */}
             <div className="relative container mx-auto px-4 md:px-6 z-10">
-                {/* Section Title */}
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Touch</span>
-                    </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+                {/* Section Header (editorial style) */}
+                <div className="mb-10 md:mb-14">
+                    <p className="text-white/60 text-sm md:text-base tracking-widest uppercase mb-3 text-center">Contact</p>
+                    <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-tight text-center">Let’s build something great</h2>
                 </div>
 
                 {/* Contact Grid */}
                 <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
                     {/* Left Side - Contact Info */}
                     <div className="space-y-6">
-                        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8">
+                        <div className="rounded-3xl p-8 border border-white/10 bg-white/[0.04] backdrop-blur-xl">
                             <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
                             <p className="text-gray-300 mb-8">
                                 Have a project in mind? Let's discuss how we can work together to create something amazing.
@@ -177,7 +178,7 @@ const Contact = () => {
                     </div>
 
                     {/* Right Side - Contact Form */}
-                    <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8">
+                    <div className="rounded-3xl p-8 border border-white/10 bg-white/[0.04] backdrop-blur-xl">
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid sm:grid-cols-2 gap-6">
                                 <div>

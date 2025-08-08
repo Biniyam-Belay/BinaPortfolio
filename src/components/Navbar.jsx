@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
     { id: 'home', label: 'Home' },
@@ -8,6 +9,8 @@ const navItems = [
 ];
 
 export default function Navbar() {
+    const navigate = useNavigate();
+    const location = useLocation();
     const [activeItem, setActiveItem] = useState('home');
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -38,6 +41,20 @@ export default function Navbar() {
     }, []);
 
     const scrollToSection = (id) => {
+        if (id === 'projects') {
+            setIsMenuOpen(false);
+            navigate('/projects');
+            return;
+        }
+        if (location.pathname !== '/') {
+            navigate('/');
+            // delay to allow route change
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                element?.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+            return;
+        }
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
@@ -67,7 +84,7 @@ export default function Navbar() {
                                 <li key={item.id}>
                                     <button
                                         onClick={() => scrollToSection(item.id)}
-                                        className={`relative px-4 py-2 text-[15px] font-medium transition-all duration-300
+                                        className={`relative px-4 py-2 text-[15px] font-medium transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500
                                             ${activeItem === item.id ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                                     >
                                         {item.label}
@@ -81,14 +98,15 @@ export default function Navbar() {
                         </ul>
 
                         {/* Resume Button */}
-                        <button className="hidden lg:block px-6 py-2.5 rounded-xl text-sm font-medium bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
+                        <button className="hidden lg:block px-6 py-2.5 rounded-xl text-sm font-medium bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500">
                             Resume
                         </button>
 
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="lg:hidden text-white p-2"
+                            className="lg:hidden text-white p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
+                            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 {isMenuOpen ? (

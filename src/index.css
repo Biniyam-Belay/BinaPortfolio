@@ -14,6 +14,68 @@
     .font-poppins {
         font-family: 'Poppins', sans-serif !important;
     }
+
+    /* Hide scrollbars visually but keep scrollability and accessibility */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    /* Creative shapes and helpers */
+    .break-inside-avoid { break-inside: avoid; }
+
+    .shape-blob-1 { border-radius: 40% 60% 50% 50% / 55% 45% 55% 45%; }
+    .shape-blob-2 { border-radius: 60% 40% 45% 55% / 50% 60% 40% 50%; }
+    .shape-blob-3 { border-radius: 35% 65% 60% 40% / 45% 55% 45% 55%; }
+
+    .soft-shadow { box-shadow: 0 20px 60px rgba(168, 85, 247, 0.12), 0 8px 24px rgba(0,0,0,0.35); }
+
+    .card-glow { position: relative; }
+    .card-glow::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: radial-gradient(60% 60% at 50% 100%, rgba(168,85,247,0.25), rgba(59,130,246,0.14), transparent 70%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 500ms ease;
+    }
+    .card-glow:hover::before, .card-glow:focus-within::before { opacity: 1; }
+
+    /* Editorial helpers */
+    .gradient-rule-v {
+        width: 2px;
+        background: linear-gradient(180deg, rgba(168,85,247,0) 0%, rgba(168,85,247,0.35) 50%, rgba(59,130,246,0) 100%);
+    }
+    .outline-text {
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.35);
+        text-stroke: 1px rgba(255,255,255,0.35);
+    }
+    .mask-hex {
+        clip-path: polygon(25% 6%, 75% 6%, 94% 50%, 75% 94%, 25% 94%, 6% 50%);
+    }
+}
+
+/* Motion helpers */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 700ms ease forwards; opacity: 0; }
+.fade-up-1 { animation-delay: 60ms; }
+.fade-up-2 { animation-delay: 120ms; }
+.fade-up-3 { animation-delay: 180ms; }
+.fade-up-4 { animation-delay: 240ms; }
+.fade-up-5 { animation-delay: 300ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-up-1, .fade-up-2, .fade-up-3, .fade-up-4, .fade-up-5 { animation: none; opacity: 1; }
 }
 
 body {

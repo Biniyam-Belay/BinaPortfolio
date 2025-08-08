@@ -1,213 +1,133 @@
-import { useState } from 'react';
-import ProjectModal from '../components/ProjectModal';
-import Nikehome from '../assets/Nikehome.png';
-import Nike2 from '../assets/Nike2.png';
-import Nike3 from '../assets/Nike3.png'
-import Nike4 from '../assets/Nike4.png'
-
-import Iphonehome from '../assets/Iphonehome.png';
-import Iphone2 from '../assets/Iphone2.png';
-import Iphone3 from '../assets/Iphone3.png'
-
-import Brainwavehome from '../assets/Brainwavehome.png';
-import Brainwave2 from '../assets/Brainwave2.png';
-import Brainwave3 from '../assets/Brainwave3.png';
-import Brainwave4 from '../assets/Brainwave4.png';
-import Brainwave5 from '../assets/Brainwave5.png';
-
-import Sirtonamain from '../assets/Sirtonamain.png';
-import Sirtona2 from '../assets/Sirtona2.png';
-import Sirtona3 from '../assets/Sirtona3.png';
-import Sirtona4 from '../assets/Sirtona4.png';
-
-import BiruhT from '../assets/BiruhT.png';
-import Biruh2 from '../assets/Biruh2.png';
-import Biruh4 from '../assets/Biruh4.png';
-import Biruh5 from '../assets/Biruh5.png';
-import Biruhmain from '../assets/Biruhmain.png';
+import { projects } from '../lib/projects';
+import { Link } from 'react-router-dom';
 
 
 const Projects = () => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [selectedProject, setSelectedProject] = useState(null);
-
-    const projects = [
-        {
-            title: "Nike Landing Page Clone",
-            category: "Web Development",
-            description: "A modern, fully responsive clone of the official Nike website Landing Page, designed to deliver an immersive online shopping experience.",
-            image: Nikehome,
-            size: "large",
-            client: "Portfolio Project",
-            role: "Developer",
-            timeline: "1 Weeks",
-            technologies: "React.js and TailwindCSS",
-            overview: "This project incorporates smooth navigation, product display.",
-            // process: "The development process included extensive research on user needs, multiple iterations of the UI design, and implementation of complex data visualization components.",
-            gallery: [
-                Nikehome,
-                Nike2,
-                Nike3,
-                Nike4
-            ],
-            liveUrl: "https://binanikeclone.netlify.app/",
-            githubUrl: "https://github.com/Biniyam-Belay/NIkeClone"
-        },
-        {
-            title: "Iphone Website Clone",
-            category: "Web Development",
-            description: "An Iphone 15 website clone, with integrated 3D product display with ThreeJs.",
-            image: Iphonehome,
-            size: "small",
-            client: "Portfolio Project",
-            role: "Developer",
-            timeline: "2 Weeks",
-            technologies: "React, TailwindCSS, ThreeJs, Gsap",
-            overview: "An Iphone 15 website clone, with integrated 3D product display with ThreeJs.",
-            // process: "Extensive user research, wireframing, and prototyping to create an intuitive and secure banking experience.",
-            gallery: [
-                Iphonehome,
-                Iphone2,
-                Iphone3
-            ],
-            liveUrl: "https://binaiphoneclone.netlify.app/",
-            githubUrl: "https://github.com/Biniyam-Belay/IphoneWebsite_Clone"
-        },
-        {
-            title: "Biruh Tutors",
-            category: "Branding",
-            description: "Complete brand identity design for tech startup providing online learning platform for student.",
-            image: BiruhT,
-            size: "tall",
-            client: "Biruh Tutors",
-            role: "Brand Designer",
-            timeline: "2 months",
-            technologies: "Adobe Suite, Figma",
-            overview: "Comprehensive brand identity system including logo, typography, color palette, and brand guidelines.",
-            process: "Deep market research, competitor analysis, and multiple design iterations to create a unique and memorable brand identity.",
-            gallery: [
-                Biruh2,
-                Biruhmain,
-                Biruh5,
-                Biruh4
-            ]
-        },
-        {
-            title: "Sirtona",
-            category: "Branding",
-            description: "Complete brand identity design for tech startup collecting and providing realtime user experience and marketing strategies for companies and customer on different products",
-            image: Sirtonamain,
-            size: "small",
-            client: "Sirtona",
-            role: "Graphic Designer",
-            timeline: "4 months",
-            technologies: "Adobe Photoshop , Adobe Illustrator, Affinity Designer, Affinity Publisher",
-            overview: "Comprehensive brand identity system including logo, typography, color palette, and brand guidelines.",
-            // process: "Implemented complex real-time features, user authentication, and scalable architecture.",
-            gallery: [
-                // Sirtona2,
-                // Sirtona3,
-                Sirtona4
-            ]
-        },
-        {
-            title: "Brainwave",
-            category: "Web Development",
-            description: "A modern, fully responsive website, with customize animation and eye catching UI design.",
-            image: Brainwavehome,
-            size: "wide",
-            client: "Portfolio Project",
-            role: "Developer",
-            timeline: "2 Weeks",
-            technologies: "React, TailwindCSS, Gsap",
-            overview: "A modern, fully responsive website, with customize animation and eye catching UI design.",
-            // process: "Integration of machine learning models, development of interactive dashboards, and implementation of real-time data processing.",
-            gallery: [
-                Brainwavehome,
-                Brainwave3,
-                Brainwave4,
-                Brainwave5
-            ],
-            liveUrl: "https://binabrainwaveclone.netlify.app/",
-            githubUrl: "https://github.com/Biniyam-Belay/brainwave"
-        }
-    ];
+    // Featured case-study bands inspired by reference
 
     return (
-        <div className="relative min-h-screen w-full py-16 overflow-hidden" id="projects">
+        <div className="relative min-h-screen w-full pt-24 pb-16 overflow-hidden" id="projects">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-black">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(76,29,149,0.1),rgba(0,0,0,0.2))]"></div>
-                <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,rgba(76,29,149,0.05)_0%,rgba(59,130,246,0.05)_100%)]"></div>
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_70%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(76,29,149,0.08),rgba(0,0,0,0.2))]"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,rgba(76,29,149,0.04)_0%,rgba(59,130,246,0.04)_100%)]"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:120px_120px] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_70%)]"></div>
             </div>
 
             {/* Content Container */}
-            <div className="relative container mx-auto px-4 md:px-6 z-10">
+            <div className="relative z-10">
                 {/* Section Title */}
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Projects</span>
-                    </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"></div>
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="text-center mb-8 md:mb-12">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-white tracking-tight">
+                            Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Works</span>
+                        </h2>
+                        <p className="text-gray-400 mt-3 md:mt-4 max-w-2xl mx-auto">An editorial showcase — minimal, immersive, and elegant.</p>
+                    </div>
                 </div>
 
-                {/* Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[300px] gap-6 max-w-7xl mx-auto">
-                    {projects.map((project, index) => (
-                        <div
-                            key={index}
-                            className={`group relative rounded-3xl overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10
-                                ${project.size === 'large' || project.size === 'wide' ? 'lg:col-span-2' : ''}
-                                ${project.size === 'tall' ? 'row-span-2' : ''}
-                                transition-transform duration-300 hover:scale-[1.02] cursor-pointer`}
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                            onClick={() => setSelectedProject(project)}
-                        >
-                            {/* Project Image */}
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="absolute inset-0 w-full h-full object-cover"
-                            />
+                {/* Featured Case Studies (alternating image/text) */}
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="space-y-16 md:space-y-24">
+                        {projects.slice(0, 2).map((project, index) => {
+                            const isEven = index % 2 === 0;
+                            const imageOrder = isEven ? 'md:order-1' : 'md:order-2';
+                            const contentOrder = isEven ? 'md:order-2' : 'md:order-1';
+                            return (
+                                <article key={index} className="relative">
+                                    <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-center">
+                                        {/* Image side */}
+                                        <div className={`relative md:col-span-7 ${imageOrder}`}>
+                                            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl">
+                                                <img
+                                                    src={project.image}
+                                                    alt={project.title}
+                                                    className="w-full h-full object-cover aspect-[16/10] md:aspect-[16/9] transition-transform duration-700 ease-out hover:scale-105"
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                                            </div>
+                                        </div>
 
-                            {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                                        {/* Content side */}
+                                        <div className={`md:col-span-5 ${contentOrder}`}>
+                                            <div className="text-white/20 text-4xl md:text-6xl font-semibold mb-3 md:mb-4">{String(index + 1).padStart(3, '0')}</div>
+                                            <h3 className="text-2xl md:text-4xl font-semibold text-white tracking-tight mb-3">{project.title}</h3>
+                                            <p className="text-gray-300 mb-5 md:mb-6 max-w-md">{project.description}</p>
 
-                            {/* Content */}
-                            <div className="absolute inset-0 p-6 flex flex-col justify-end transform transition-transform duration-300">
-                                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <span className="inline-block px-4 py-1 mb-4 rounded-full text-xs font-medium bg-white/10 text-white backdrop-blur-xl border border-white/10">
-                                        {project.category}
-                                    </span>
-                                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-gray-300 text-sm md:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        {project.description}
-                                    </p>
-                                </div>
+                                            <div className="grid grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+                                                <div>
+                                                    <div className="text-xs text-white/60 uppercase tracking-wider mb-1">Industry</div>
+                                                    <div className="text-white/90 text-sm">{project.category}</div>
+                                                </div>
+                                                <div>
+                                                    <div className="text-xs text-white/60 uppercase tracking-wider mb-1">Duration</div>
+                                                    <div className="text-white/90 text-sm">{project.timeline}</div>
+                                                </div>
+                                                <div>
+                                                    <div className="text-xs text-white/60 uppercase tracking-wider mb-1">Role</div>
+                                                    <div className="text-white/90 text-sm">{project.role}</div>
+                                                </div>
+                                                <div>
+                                                    <div className="text-xs text-white/60 uppercase tracking-wider mb-1">Stack</div>
+                                                    <div className="text-white/90 text-sm">{project.technologies}</div>
+                                                </div>
+                                            </div>
 
-                                {/* View Project Button */}
-                                <div className="mt-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                                    <button className="px-6 py-2 rounded-xl text-sm font-medium bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
-                                        View Project
-                                    </button>
-                                </div>
-                            </div>
+                                            <div className="flex flex-wrap items-center gap-3">
+                                                {project.liveUrl && (
+                                                    <a
+                                                        href={project.liveUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 text-white text-sm font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+                                                    >
+                                                        View Live
+                                                    </a>
+                                                )}
+                                                {project.githubUrl && (
+                                                    <a
+                                                        href={project.githubUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="px-5 py-2.5 rounded-xl bg-white/5 text-white text-sm font-medium border border-white/10 hover:bg-white/10 transition-all"
+                                                    >
+                                                        Source Code
+                                                    </a>
+                                                )}
+                                                <Link
+                                                    to="/projects"
+                                                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-transparent text-white/80 text-sm hover:text-white transition-colors"
+                                                >
+                                                    See more projects
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            );
+                        })}
+
+                        <div className="pt-4 text-center">
+                            <Link
+                                to="/projects"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 text-white text-sm font-medium border border-white/10 hover:bg-white/10 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
+                            >
+                                See all projects
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </Link>
                         </div>
-                    ))}
+                    </div>
                 </div>
-            </div>
 
-            {/* Project Modal */}
-            {selectedProject && (
-                <ProjectModal
-                    project={selectedProject}
-                    onClose={() => setSelectedProject(null)}
-                />
-            )}
+                {/* Removed separate bottom details; details are inside each card */}
+            </div>
 
             {/* Decorative Elements */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden">

@@ -51,7 +51,7 @@ const About = () => {
     };
 
     return (
-        <div className="relative min-h-screen w-full py-20 overflow-hidden" id="about">
+        <div className="relative min-h-screen w-full pt-24 pb-20 overflow-hidden" id="about">
             {/* Background matching Hero section */}
             <div className="absolute inset-0 bg-black">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(76,29,149,0.1),rgba(0,0,0,0.2))]"></div>
